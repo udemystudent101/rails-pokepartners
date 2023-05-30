@@ -2,7 +2,7 @@
 <div class="cards mt-4">
   <% @pokemons.each do |pokemon| %>
     <div class="card-trip rounded-3" style="max-width: 540px;">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <img src="<%= pokemon.image_url %>"  />
         <div class="card-trip-infos">
           <div>
             <h2><%= pokemon.name%></h2>
