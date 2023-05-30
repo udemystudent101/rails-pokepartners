@@ -25,7 +25,7 @@ data = JSON.parse(json_file)
         name: data[id]["name"]["fr"],
         nature: data[id]["types"][0]["name"],
         category: services.sample,
-        price_by_day: rand(50..400)
+        price: rand(50..400)
       )
       pokemon.user = user
       pokemon.save

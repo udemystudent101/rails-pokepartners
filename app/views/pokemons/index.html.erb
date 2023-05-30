@@ -1,23 +1,18 @@
-
-<h1 style="text-align:center"> Liste des pokemons</h1>
-
-
 <div class="container">
-<div class="cards">
+<div class="cards mt-4">
   <% @pokemons.each do |pokemon| %>
-    <div class="card-trip" style="max-width: 540px;">
+    <div class="card-trip rounded-3" style="max-width: 540px;">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
         <div class="card-trip-infos">
           <div>
             <h2><%= pokemon.name%></h2>
-            <p> category <%= pokemon.category  %></p>
-            <p> category <%= pokemon.nature  %></p>
+            <p><strong>Categorie</strong> <%= pokemon.category  %></p>
+            <p><strong>Nature</strong> <%= pokemon.nature  %></p>
           </p>
           </div>
           <h2 class="card-trip-pricing">
-            <h2><%= pokemon.price%></h2>
+            <h2><%= pokemon.price%> ₽</h2>
           </h2>
-          <img src="#" class="card-trip-user avatar-bordered" />
         </div>
     </div>
   <% end %>
