@@ -9,10 +9,12 @@ class PokemonsController < ApplicationController
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
-    @pokemon.save
-    redirect_to pokemons_path
+    if @pokemon.save
+      redirect_to pokemon_path(@pokemon)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
-
 
   private
 
