@@ -1,1 +1,19 @@
-<h1>Liste des pokemons</h1>
+
+  <h1>Liste des pokemons</h1>
+<div class="container">
+
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <p>
+      <% @pokemons.each do |pokemon| %>
+      <h2><%= pokemon.name%></h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+      <% end %>
+    </p>
+
+  </div>
+</div>
+
+
+</div>
