@@ -6,7 +6,7 @@
 <div class="cards">
   <% @pokemons.each do |pokemon| %>
     <div class="card-trip" style="max-width: 540px;">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <img src="<%= pokemon.image_url %>" />
         <div class="card-trip-infos">
           <div>
             <h2><%= pokemon.name%></h2>
