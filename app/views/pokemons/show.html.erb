@@ -1,3 +1,23 @@
-<div class="container">
-
+<div class="">
+  <div class="image d-flex align-items-center ">
+    <div class="d-flex justify-content-between color-white size ps-5">
+      <div style="color: white" class="">
+        <h1>Caractéristiques</h1>
+        <h2>Nom : </h2>
+        <p><%= @pokemon.name %></p>
+        <h2>Catégorie : </h2>
+        <p><%= @pokemon.category %></p>
+        <h2>Nature : </h2>
+        <p><%= @pokemon.nature %></p>
+        <h2>Prix : </h2>
+        <p><%= @pokemon.price %></p>
+      </div>
+      <div>
+        <img src="<%= @pokemon.image_url %>" alt="pokemon.png">
+      </div>
+    </div>
+  </div>
+  <div class="mt-3 border-bottom border-2" style="height: 50vh">
+    <h1>Détails</h1>
+  </div>
 </div>

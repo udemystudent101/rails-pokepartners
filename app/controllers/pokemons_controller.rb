@@ -18,6 +18,10 @@ class PokemonsController < ApplicationController
     end
   end
 
+  def show
+    @pokemon = Pokemon.find(params[:id])
+  end
+
   private
 
   def pokemon_params
