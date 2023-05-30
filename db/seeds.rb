@@ -31,7 +31,8 @@ api_2 = JSON.parse(json_file_2)
         name: api_1[id]["name"]["fr"],
         nature: api_1[id]["types"][0]["name"],
         category: services.sample,
-        price: rand(50..400)
+        price: rand(50..400),
+        image_url: api_2[id]["image"]
       )
       pokemon.user = user
       pokemon.save
