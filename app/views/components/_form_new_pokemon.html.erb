@@ -1,0 +1,26 @@
+<div class='background'>
+  <div class="container vh-100 d-flex align-items-center justify-content-center">
+    <div class="p-3">
+      <div class="px-5 py-4 border border-3 rounded-5 border-dark background_form">
+        <div class="d-flex justify-content-center mb-3">
+          <%= image_tag 'logo.png', class:"rounded-circle", alt: "pokeball", width: 100%>
+        </div>
+        <div class='d-flex justify-content-center mb-3'>
+          <h1>Add a new pokemon !</h1>
+        </div>
+        <%=simple_form_for @pokemon do |f| %>
+        <%= f.input :name %>
+        <%= f.input :nature %>
+        <%= f.input :category %>
+        <%= f.input :price_by_day %>
+        <div class='d-flex justify-content-center mt-5' style="height: 40px">
+          <%= f.submit "submit", class: 'rounded-pill border border-0 btn-submit'%>
+        </div>
+        <% end %>
+        <div class="mt-4">
+          <%= link_to "retour à la liste des Pokemons", pokemons_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

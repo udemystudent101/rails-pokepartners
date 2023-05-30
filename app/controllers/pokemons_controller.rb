@@ -1,4 +1,5 @@
 class PokemonsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     @pokemons = Pokemon.all
   end
@@ -9,10 +10,13 @@ class PokemonsController < ApplicationController
 
   def create
     @pokemon = Pokemon.new(pokemon_params)
-    @pokemon.save
-    redirect_to pokemons_path
+    @pokemon.user = current_user
+    if @pokemon.save
+      redirect_to pokemons_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
-
 
   private
 
