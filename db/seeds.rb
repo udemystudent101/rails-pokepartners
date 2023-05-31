@@ -9,7 +9,7 @@ require 'open-uri'
 require 'json'
 require 'faker'
 
-services = ["soin", "transport-air", "transport-terre", "transport-eau", "chasse", "pêche", "pompier", "police", "garde du corps"]
+services = Pokemon::CATEGORIES
 
 json_file_1 = URI.open("https://api-pokemon-fr.vercel.app/api/v1/gen/1").read
 api_1 = JSON.parse(json_file_1)
