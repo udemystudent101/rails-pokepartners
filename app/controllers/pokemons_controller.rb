@@ -27,6 +27,7 @@ class PokemonsController < ApplicationController
 
   def edit
     @pokemon = Pokemon.find(params[:id])
+    render :new
   end
 
   def update

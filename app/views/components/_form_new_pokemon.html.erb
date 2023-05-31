@@ -6,7 +6,7 @@
           <%= image_tag 'logo.png', class:"rounded-circle", alt: "pokeball", width: 100%>
         </div>
         <div class='d-flex justify-content-center mb-3'>
-          <h1>Add a new pokemon !</h1>
+          <h1><%= @pokemon.name.nil? ? "Ajouter un pokemon !" : "Modifier #{pokemon.name}" %></h1>
         </div>
         <%=simple_form_for @pokemon do |f| %>
         <%= f.input :name %>
