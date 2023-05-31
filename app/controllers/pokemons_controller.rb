@@ -3,7 +3,7 @@ class PokemonsController < ApplicationController
   before_action :set_pokemon, only: %i[show edit update destroy]
 
   def index
-    @pokemons = Pokemon.all
+    @pokemons = params["format"].nil? ? Pokemon.all : Pokemon.where(category: params["format"])
   end
 
   def new

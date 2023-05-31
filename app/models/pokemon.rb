@@ -4,4 +4,14 @@ class Pokemon < ApplicationRecord
   validates :nature, presence: true
   validates :category, presence: true
   validates :price, presence: true
+
+  CATEGORIES = [
+    "Transport aerien",
+    "Transport terrestre",
+    "Transport aquatique",
+    "Pompier",
+    "Police",
+    "Soin"
+  ]
+
 end

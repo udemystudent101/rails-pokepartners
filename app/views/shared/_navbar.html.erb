@@ -26,6 +26,17 @@
             <%= link_to "Home", pokemons_path, class: "nav-link" %>
           </li>
 
+          <%# CATEGORIES LINK %>
+          <li class="nav-item dropdown">
+            <p class=" nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">Categories</p>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <% Pokemon::CATEGORIES.each do |cat| %>
+                <%= link_to cat, pokemons_path(cat), class: "dropdown-item" %>
+              <% end %>
+
+            </div>
+          </li>
+
           <%# ADD POKEMON LINK %>
           <li class="nav-item">
             <%= link_to "Ajouter un pokemon", new_pokemon_path, class: "nav-link" %>
