@@ -10,8 +10,12 @@
         </div>
         <%=simple_form_for @pokemon do |f| %>
         <%= f.input :name %>
-        <%= f.input :nature %>
-        <%= f.input :category %>
+        <%= f.input :nature do %>
+          <%= f.select :nature, Pokemon::NATURE %>
+        <% end %>
+        <%= f.input :category do %>
+          <%= f.select :category, Pokemon::CATEGORIES %>
+        <% end %>
         <%= f.input :price %>
         <%= f.input :photo, as: :file %>
         <div class='d-flex justify-content-center mt-5' style="height: 40px">
