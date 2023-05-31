@@ -1,5 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom border-3">
   <div class="container-fluid">
+
   <%# LOGO + LINK HOME %>
     <%= link_to pokemons_path, class: "navbar-brand, h-50 w-80" do %>
       <%= image_tag "logo_pokemon.png", class: "w-80" %>
@@ -19,14 +20,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-
+        
           <%# HOME LINK %>
           <li class="nav-item active">
             <%= link_to "Home", pokemons_path, class: "nav-link" %>
           </li>
-
-          <li class="nav-item active">
-            <%= link_to "Home", pokemons_path, class: "nav-link" %>
+        
+          <%# ADD POKEMON LINK %>
+          <li class="nav-item">
+            <%= link_to "Ajouter un pokemon", new_pokemon_path %>
           </li>
 
           <%# MY POKEMONS LINK %>
