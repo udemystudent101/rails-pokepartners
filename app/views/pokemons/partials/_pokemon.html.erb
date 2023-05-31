@@ -1,7 +1,11 @@
 
 <%= link_to pokemon_path(pokemon) do %>
   <div class="card-trip rounded-3" style="max-width: 540px;">
-      <img src="<%= pokemon.image_url%>">
+      <% if pokemon.photo.key.present?%>
+        <%= cl_image_tag pokemon.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <img src="<%= pokemon.image_url%>">
+      <% end %>
       <div class="d-flex justify-content-between mt-2 p-2">
         <div class="ms-3">
           <h2> <%= pokemon.name %></h2>
