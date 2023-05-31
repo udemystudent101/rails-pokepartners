@@ -6,22 +6,17 @@ export default class extends Controller {
   static targets = ['input', 'list', 'form']
   connect() {
     console.log("hello !")
-    console.log(this.inputTarget)
-    console.log(this.listTarget)
-    console.log(this.formTarget)
   }
 
   searching() {
-    console.log(this.inputTarget.value)
-    console.log("key pressed")
+
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
-    const options = { headers: { 'Accept': 'text/plain' }}
-    // http://localhost:3000/pokemons?query=arca
+    const options = { headers: { 'Accept': 'application/json' }}
     fetch(url, options)
-      .then(response => response.text())
+      .then(response => response.json())
       .then((data) => {
-        // this.listTarget.insertAdjacentHTML("beforeend", data)
-        this.listTarget.outerHTML = data
+        console.log(data.list)
+        this.listTarget.innerHTML = data.list
       })
   }
 }

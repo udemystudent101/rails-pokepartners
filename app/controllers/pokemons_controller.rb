@@ -6,12 +6,13 @@ class PokemonsController < ApplicationController
 
     @pokemons = params["format"].nil? ? Pokemon.all : Pokemon.where(category: params["format"])
     if params[:query].present?
-      @pokemons = Pokemon.where("name LIKE ?", "%#{params[:query].capitalize}%")
+      @pokemons = Pokemon.where("name ILIKE ?", "%#{params[:query]}%")
     end
-
-    respond_to do |format|
-      format.html # Follow regular flow of Rails
-      format.text { render :search, locals: { pokemons: Pokemon.where("name LIKE ?", "%#{params[:query].capitalize}%") } }
+    unless params["format"].present?
+      respond_to do |format|
+        format.html
+        format.json
+      end
     end
   end
 
@@ -49,11 +50,6 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
     redirect_to pokemons_path, status: :see_other
-  end
-
-  def search
-    @pokemons = Pokemon.where("name LIKE ?", "%#{params[:query].capitalize}%")
-    render :index
   end
 
   private
