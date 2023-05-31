@@ -23,3 +23,23 @@ a {
     color: inherit;
   }
 }
+
+.icon {
+  font-size: large;
+}
+
+.delete-btn {
+  transition: 0.3s;
+  &:hover {
+    color: red;
+    font-size: larger;
+  }
+}
+
+.edit-btn {
+  transition: 0.3s;
+  &:hover {
+    color: green;
+    font-size: larger;
+  }
+}

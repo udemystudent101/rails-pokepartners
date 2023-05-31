@@ -10,9 +10,24 @@
         <h2>Nature : </h2>
         <p><%= @pokemon.nature %></p>
         <h2>Prix : </h2>
-        <p><%= @pokemon.price %></p>
+        <p><%= @pokemon.price %> ₽</p>
       </div>
       <div>
+
+          <div  class="d-flex flex-column flex-row-reverse icon">
+
+            <div>
+              <%= link_to edit_pokemon_path(@pokemon.id) do %>
+                <i class="fas fa-edit edit-btn m-2"></i>
+              <% end %>
+
+
+
+              <%= link_to pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"} do %>
+                  <i class="fa-solid fa-trash delete-btn"></i>
+              <% end %>
+            </div>
+          </div>
         <img src="<%= @pokemon.image_url %>" alt="pokemon.png">
       </div>
     </div>
@@ -21,16 +36,4 @@
     <h1>Détails</h1>
   </div>
   <div>
-    <div>
-      <div>
-        <%= link_to "Effacer un pokemon !",
-        pokemon_path(@pokemon),
-        data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"}
-        %>
-      </div>
-      <div>
-        <%= link_to "Modifier un pokemon !",
-        edit_pokemon_path(@pokemon.id) %>
-      </div>
-  </div>
 </div>
