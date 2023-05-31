@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom border-3">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand, h-50 w-80" do %>
+    <%= link_to root_path, class: "navbar-brand, h-50 w-80" do %>
       <%= image_tag "logo_pokemon", class: "w-80" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +18,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
             <%= link_to "Vos pokemons", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Ajouter un pokemon", new_pokemon_path %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
