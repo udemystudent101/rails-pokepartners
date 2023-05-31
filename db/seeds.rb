@@ -10,11 +10,11 @@ require 'json'
 require 'faker'
 
 services = Pokemon::CATEGORIES
-
-json_file_1 = URI.open("https://api-pokemon-fr.vercel.app/api/v1/gen/1").read
+generation = 1
+json_file_1 = URI.open("https://api-pokemon-fr.vercel.app/api/v1/gen/#{generation}").read
 api_1 = JSON.parse(json_file_1)
 
-json_file_2 = URI.open("https://pokebuildapi.fr/api/v1/pokemon/generation/1").read
+json_file_2 = URI.open("https://pokebuildapi.fr/api/v1/pokemon/generation/#{generation}").read
 api_2 = JSON.parse(json_file_2)
 
 Pokemon.destroy_all
@@ -37,7 +37,7 @@ sacha.save!
 
   if user.save
     rand(3..6).times do
-      id = rand(1..150)
+      id = rand(api_1.size)
       pokemon = Pokemon.new(
         name: api_1[id]["name"]["fr"],
         nature: api_1[id]["types"][0]["name"],
