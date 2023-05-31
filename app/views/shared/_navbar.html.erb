@@ -1,29 +1,42 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom border-3">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand, h-50 w-80" do %>
-      <%= image_tag "logo_pokemon", class: "w-80" %>
+
+  <%# LOGO + LINK HOME %>
+    <%= link_to pokemons_path, class: "navbar-brand, h-50 w-80" do %>
+      <%= image_tag "logo_pokemon.png", class: "w-80" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat"> <i class="fas fa-search"></i> Recherche</button>
-  </div>
+    <%# SEARCH BAR %>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group d-flex align-items-center" style="height: 40px;">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="btn btn-flat"> <i class="fas fa-search p-2 border border-2 border-dark rounded-circle"></i></button>
+      </div>
   <% end %>
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+
+          <%# HOME LINK %>
+          <li class="nav-item active">
+            <%= link_to "Home", pokemons_path, class: "nav-link" %>
+          </li>
+
+          <%# ADD POKEMON LINK %>
+          <li class="nav-item">
+            <%= link_to "Ajouter un pokemon", new_pokemon_path, class: "nav-link" %>
+          </li>
+
+          <%# MY POKEMONS LINK %>
           <li class="nav-item">
             <%= link_to "Vos pokemons", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Ajouter un pokemon", new_pokemon_path %>
-          </li>
+
+            <%# PROFILE DROPDOWN %>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
