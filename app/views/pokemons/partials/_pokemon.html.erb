@@ -1,0 +1,16 @@
+
+<%= link_to pokemon_path(pokemon) do %>
+  <div class="card-trip rounded-3" style="max-width: 540px;">
+      <img src="<%= pokemon.image_url%>">
+      <div class="d-flex justify-content-between mt-2 p-2">
+        <div class="ms-3">
+          <h2> <%= pokemon.name %></h2>
+          <p><strong>Categorie</strong> <%= pokemon.category  %></p>
+          <p><strong>Nature</strong> <%= pokemon.nature  %></p>
+        </div>
+        <div class="me-3">
+          <h2><%= pokemon.price%> ₽</h2>
+        </div>
+      </div>
+  </div>
+  <% end %>

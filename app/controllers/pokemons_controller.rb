@@ -1,5 +1,6 @@
 class PokemonsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :set_pokemon, only: %i[show edit update destroy]
 
   def index
     @pokemons = params["format"].nil? ? Pokemon.all : Pokemon.where(category: params["format"])
@@ -24,9 +25,30 @@ class PokemonsController < ApplicationController
     @booking = Booking.new
   end
 
+  def edit
+    @pokemon = Pokemon.find(params[:id])
+    render :new
+  end
+
+  def update
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.update(pokemon_params)
+    redirect_to pokemon_path(@pokemon)
+  end
+
+  def destroy
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to pokemons_path, status: :see_other
+  end
+
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :nature, :category, :price)
+    params.require(:pokemon).permit(:name, :nature, :category, :price, :photo)
+  end
+
+  def set_pokemon
+    @pokemon = Pokemon.find(params[:id])
   end
 end

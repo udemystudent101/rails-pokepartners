@@ -1,9 +1,8 @@
 <div class="container">
-<div class="cards mt-4">
-  <% @pokemons.each do |pokemon| %>
-    <%= render pokemon %>
-    </div>
-  <% end %>
-</div>
+  <div class="cards mt-4">
+    <% @pokemons.each do |pokemon| %>
+      <%= render 'pokemons/partials/pokemon', pokemon: pokemon %>
+    <% end %>
+  </div>
 
 </div>
