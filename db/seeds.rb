@@ -17,6 +17,9 @@ api_1 = JSON.parse(json_file_1)
 json_file_2 = URI.open("https://pokebuildapi.fr/api/v1/pokemon/generation/1").read
 api_2 = JSON.parse(json_file_2)
 
+Pokemon.destroy_all
+User.destroy_all
+
 5.times do
   user = User.new(
     email: Faker::Internet.email,
