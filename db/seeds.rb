@@ -20,6 +20,14 @@ api_2 = JSON.parse(json_file_2)
 Pokemon.destroy_all
 User.destroy_all
 
+sacha = User.new(
+    email: "sacha@pika.com",
+    name: "Sacha",
+    password: "secret"
+  )
+
+sacha.save!
+
 5.times do
   user = User.new(
     email: Faker::Internet.email,
