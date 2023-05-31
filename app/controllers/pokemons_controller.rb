@@ -18,6 +18,11 @@ class PokemonsController < ApplicationController
     end
   end
 
+  def show
+    @pokemon = Pokemon.find(params[:id])
+    @booking = Booking.new
+  end
+
   private
 
   def pokemon_params
