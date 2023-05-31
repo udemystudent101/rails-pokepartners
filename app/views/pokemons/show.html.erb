@@ -21,4 +21,17 @@
     <h1>Détails</h1>
     <%= render "components/booking_form", booking: @booking%>
   </div>
+  <div>
+    <div>
+      <div>
+        <%= link_to "Effacer un pokemon !",
+        pokemon_path(@pokemon),
+        data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"}
+        %>
+      </div>
+      <div>
+        <%= link_to "Modifier un pokemon !",
+        edit_pokemon_path(@pokemon.id) %>
+      </div>
+  </div>
 </div>
