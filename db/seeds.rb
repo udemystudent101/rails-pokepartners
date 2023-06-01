@@ -28,6 +28,8 @@ sacha = User.new(
 
 sacha.save!
 
+natures = []
+
 5.times do
   user = User.new(
     email: Faker::Internet.email,
@@ -38,6 +40,7 @@ sacha.save!
   if user.save
     rand(3..6).times do
       id = rand(1..150)
+      nature = api_1[id]["types"][0]["name"]
       pokemon = Pokemon.new(
         name: api_1[id]["name"]["fr"],
         nature: api_1[id]["types"][0]["name"],
@@ -45,6 +48,7 @@ sacha.save!
         price: rand(50..400),
         image_url: api_2[id]["image"]
       )
+      natures << nature unless Pokemon::NATURE.include?(nature)
       pokemon.user = user
       pokemon.save
     end
@@ -52,7 +56,5 @@ sacha.save!
     p user.errors.messages
   end
 end
-
-
 
 # Faker::Games::SuperSmashBros.fighter
