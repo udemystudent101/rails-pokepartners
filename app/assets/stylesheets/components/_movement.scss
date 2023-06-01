@@ -1,0 +1,19 @@
+.animate {
+  animation: slide 5s infinite ease-in-out;
+
+}
+
+@keyframes slide {
+  from {
+    transform:translateX(0);
+  }
+
+  50% {
+    transform:translateX(-150px);
+
+  }
+
+  to {
+    transform:translateX(0px);
+  }
+}

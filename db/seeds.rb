@@ -10,6 +10,11 @@ require 'json'
 require 'faker'
 
 services = Pokemon::CATEGORIES
+details = [
+  "c`est un Pokémon de nature joueuse et qui n`accorde pas sa confiance à n`importe qui.",
+  "Pour ce qui est du caractère, ce Pokémon est toujours joyeux et généreux. Ce Pokémon n`hésite pas à aider ces semblables",
+  "Pokémon mystérieux et énigmatique. Il est difficile d`en dire beaucoup sur son caractère, car il n`a pas été vu dans beaucoup de combats et n`a pas été beaucoup révélé au public."
+]
 
 json_file_1 = URI.open("https://api-pokemon-fr.vercel.app/api/v1/gen/1").read
 api_1 = JSON.parse(json_file_1)
@@ -17,8 +22,12 @@ api_1 = JSON.parse(json_file_1)
 json_file_2 = URI.open("https://pokebuildapi.fr/api/v1/pokemon/generation/1").read
 api_2 = JSON.parse(json_file_2)
 
+Booking.destroy_all
+puts "booking destroyed"
 Pokemon.destroy_all
+puts "pokemon destroyed"
 User.destroy_all
+puts "user destroyed"
 
 sacha = User.new(
     email: "sacha@pika.com",
@@ -27,6 +36,8 @@ sacha = User.new(
   )
 
 sacha.save!
+
+puts "user created"
 
 natures = []
 
@@ -46,7 +57,8 @@ natures = []
         nature: api_1[id]["types"][0]["name"],
         category: services.sample,
         price: rand(50..400),
-        image_url: api_2[id]["image"]
+        image_url: api_2[id]["image"],
+        details: details.sample
       )
       natures << nature unless Pokemon::NATURE.include?(nature)
       pokemon.user = user
