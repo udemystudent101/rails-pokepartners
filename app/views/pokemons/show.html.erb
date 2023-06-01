@@ -20,15 +20,17 @@
             <img src="<%= @pokemon.image_url%>">
           <% end %>
         </div>
-            <div  class="d-flex flex-column icon p-3">
-                <%= link_to edit_pokemon_path(@pokemon.id) do %>
-                  <i class="fas fa-edit edit-btn"></i>
-                <% end %>
-                <%= link_to pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"} do %>
-                    <i class="fa-solid fa-trash delete-btn"></i>
-                <% end %>
+          <% if @pokemon.user_id == current_user.id%>
+            <div class="d-flex flex-column icon p-3">
+              <%= link_to edit_pokemon_path(@pokemon.id) do %>
+                <i class="fas fa-edit edit-btn"></i>
+              <% end %>
+              <%= link_to pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"} do %>
+                  <i class="fa-solid fa-trash delete-btn"></i>
+              <% end %>
 
             </div>
+          <% end %>
           </div>
     </div>
   </div>
