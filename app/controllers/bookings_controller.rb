@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_pokemon, only: [:create]
 
   def new
     @booking = Booking.new
@@ -6,8 +7,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.pokemon = @pokemon
     if @booking.save
-      redirect_to new_booking_path
+      redirect_to pokemon_path(@pokemon)
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,6 +19,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date)
+    params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def set_pokemon
+    @pokemon = Pokemon.find(params[:pokemon_id])
   end
 end
