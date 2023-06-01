@@ -3,10 +3,11 @@
 
   <div class="card-trip rounded-3" style="max-width: 540px;">
       <%# POKEBALL SPRITE IF POKEMON OWNED %>
-      <% if pokemon.user_id == current_user.id %>
+      <% if current_user.present? && (pokemon.user_id == current_user.id) %>
         <div class="d-flex flex-row-reverse">
           <%= image_tag "pokeball_sprite.png", style: "width: 6%; right: 10px; offset: 5px 5px 0px 0px;", class: "me-3 mt-3" %>
         </div>
+        <% else %>
       <% end %>
 
         <%# DISPLAY API IMG OR USER IMG IF KEY PRESENT %>
