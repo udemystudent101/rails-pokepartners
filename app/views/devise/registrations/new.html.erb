@@ -1,25 +1,37 @@
-<h2>Sign up</h2>
+<div class='background_sign_up d-flex align-items-center'>
+  <div class="container d-flex justify-content-center">
+    <div class="p-3 my-3">
+      <div class="px-5 py-4 border border-3 rounded-5 border-dark background_form">
+        <div class="d-flex justify-content-center mb-3">
+          <%= image_tag 'logo.png', class:"rounded-circle", alt: "pokeball", width: 100%>
+        </div>
+        <div class='d-flex justify-content-center mb-3'>
+          <h1>Sign up</h1>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+          </div>
+        <div class='d-flex justify-content-center mt-2' style="height: 40px">
+          <%= f.button :submit, "Sign up", class: 'px-3 py-2 rounded-pill border border-0 submit_sign_up'%>
+        </div>
+        <% end %>
+        <div class="mt-4 retour-list">
+          <%= link_to "retour à la liste des Pokemons", pokemons_path %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

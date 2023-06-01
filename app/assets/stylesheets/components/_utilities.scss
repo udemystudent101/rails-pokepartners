@@ -43,3 +43,19 @@ a {
     font-size: larger;
   }
 }
+
+.submit_sign_up {
+  color: white;
+  transition: 0.3s;
+
+    &:hover{
+      color: #c31432;
+    }
+}
+
+.background_sign_up {
+  background-image: url(https://wallpapercave.com/wp/wp8104178.jpg);
+  background-size: cover;
+  object-fit: fill;
+  min-height: calc(100vh - 77px - 100px);
+}
