@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
     @user = current_user
     @pokemons = Pokemon.all
     @bookings = Booking.all
-    raise
+    @my_bookings = @bookings.where(user_id: @user.id)
   end
 
 end
