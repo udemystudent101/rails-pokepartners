@@ -8,6 +8,7 @@ class Pokemon < ApplicationRecord
   validates :nature, presence: true
   validates :category, presence: true
   validates :price, presence: true
+  validates :details, presence: true
 
   CATEGORIES = [
     "Transport aerien",
