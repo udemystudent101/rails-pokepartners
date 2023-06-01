@@ -5,15 +5,15 @@
 
 @keyframes slide {
   from {
-    transform:translateX(50px);
+    transform:translateX(0);
   }
 
   50% {
-    transform:translateX(-75px);
+    transform:translateX(-150px);
 
   }
 
   to {
-    transform:translateX(50px);
+    transform:translateX(0px);
   }
 }

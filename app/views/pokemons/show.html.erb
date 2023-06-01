@@ -13,8 +13,7 @@
         <p><%= @pokemon.price %> ₽</p>
       </div>
       <div class="d-flex">
-        <div class="animate">
-
+        <div class="animate m-3">
           <% if @pokemon.photo.key.present?%>
             <%= cl_image_tag @pokemon.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
