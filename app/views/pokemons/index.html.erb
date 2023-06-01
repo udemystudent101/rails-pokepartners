@@ -1,8 +1,5 @@
 <div class="container">
-  <div class="cards mt-4">
-    <% @pokemons.each do |pokemon| %>
-      <%= render 'pokemons/partials/pokemon', pokemon: pokemon %>
-    <% end %>
+  <div data-searchbar-target="list">
+    <%= render "pokemons/list", pokemons: @pokemons %>
   </div>
-
 </div>
