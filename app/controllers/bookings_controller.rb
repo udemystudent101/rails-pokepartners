@@ -23,14 +23,17 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update
-    redirect_to booking_path, status: :see_other
+    if @booking.update(booking_params)
+      redirect_to dashboard_my_bookings_path(:dashboard_id), status: :see_other
+    else
+      redirect_to pokemon_path(Pokemon.find(@booking.pokemon_id)), status: :unprocessable_entity
+    end
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to booking_path, status: :see_other
+    redirect_to dashboard_my_bookings_path(:dashboard_id), status: :see_other
   end
 
   private

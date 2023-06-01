@@ -50,6 +50,16 @@ class PokemonsController < ApplicationController
   def show
     @pokemon = Pokemon.find(params[:id])
     @booking = Booking.new
+    array = Booking.where(pokemon_id: @pokemon.id)
+    array.each do |element|
+      @booking = element if element.user_id == current_user.id
+    end
+
+    # if @booking.present?
+    #   @booking = Booking.where(pokemon_id: @pokemon.id, user_id: current_user.id).first
+    # else
+    #   @booking = Booking.new
+    # end
   end
 
   def edit

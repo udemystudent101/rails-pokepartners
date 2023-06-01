@@ -35,10 +35,10 @@
     <%# EDIT DESTROY ICONS %>
     <div class="pb-3">
       <% if true %>
-          <%= link_to pokemons_path do %>
+          <%= link_to pokemon_path(pokemon) do %>
             <i class="fas fa-edit edit-btn"></i>
           <% end %>
-          <%= link_to pokemons_path do %>
+          <%= link_to pokemon_path(pokemon), data: { turbo_method: :delete, turbo_confirm: "Vous êtes sûr ?" } do %>
             <i class="fa-solid fa-trash delete-btn"></i>
           <% end %>
         <% end %>

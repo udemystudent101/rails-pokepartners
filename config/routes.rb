@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root "pokemons#index"
   resources :pokemons do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :update]
   end
 
-  resources :bookings, only: [:index, :show, :destroy, :update]
+  resources :bookings, only: [:index, :show, :destroy]
   resources :dashboard, only: %i[index] do
     get "my_bookings", to: "dashboard#current_bookings"
   end
