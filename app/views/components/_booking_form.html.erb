@@ -1,6 +1,6 @@
 <div class="booking-form p-5 rounded-5 pokeball d-flex justify-content-center align-items-center text-center" style="height: 350px; width: 300px">
   <div class="border p-2 rounded-5 bg-light shadow">
-    <%= simple_form_for(booking) do |f| %>
+    <%= simple_form_for [pokemon, booking] do |f| %>
       <%= f.input :start_date, label: false, as: :date, html5: true, input_html: { value: f.object.start_date || Time.now.strftime("%Y-%m-%d"), class: "border border-5 rounded-pill" } %>
       <%= f.input :end_date, label: false, as: :date, html5: true, input_html: { value: f.object.end_date || Time.now.tomorrow.strftime("%Y-%m-%d") , class: "border border-5 rounded-pill my-3"} %>
       <p class="bg-light p-1 rounded-pill border border-5">Total price: 150$</p>
