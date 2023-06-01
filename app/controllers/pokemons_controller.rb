@@ -3,10 +3,27 @@ class PokemonsController < ApplicationController
   before_action :set_pokemon, only: %i[show edit update destroy]
 
   def index
-    @pokemons = params["format"].nil? ? Pokemon.all : Pokemon.where(category: params["format"])
+
+    @pokemons = Pokemon.all
+    if params["format"].present?
+      if Pokemon::CATEGORIES.include?(params["format"])
+        @pokemons = Pokemon.where(category: params["format"])
+      else
+        @pokemons = Pokemon.where(nature: params["format"])
+      end
+    end
+
+
+
     if params[:query].present?
       @pokemons = Pokemon.where("name ILIKE ?", "%#{params[:query]}%")
     end
+
+
+
+
+
+
     @pokemons = @pokemons.shuffle
     unless params["format"].present?
       respond_to do |format|
