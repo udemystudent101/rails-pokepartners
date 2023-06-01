@@ -2,9 +2,9 @@ class Booking < ApplicationRecord
   belongs_to :pokemon
   belongs_to :user
 
-  validates :user_id, presence: true, uniqueness: { scope: :pokemon_id }
+  validates :user_id, presence: true
   validates :pokemon_id, presence: true
-  validates :start_date, presence: true, comparison: { greater_than: :end_date }
+  validates :end_date, presence: true, comparison: { greater_than: :start_date }
 
   def duration
     duration = end_date.to_time - start_date.to_time
