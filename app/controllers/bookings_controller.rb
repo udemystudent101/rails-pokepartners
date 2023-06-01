@@ -10,10 +10,27 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.pokemon = @pokemon
     if @booking.save
-      redirect_to pokemon_path(@pokemon)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @pokemon = Pokemon.find(@booking.pokemon_id)
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update
+    redirect_to booking_path, status: :see_other
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to booking_path, status: :see_other
   end
 
   private

@@ -17,8 +17,12 @@ api_1 = JSON.parse(json_file_1)
 json_file_2 = URI.open("https://pokebuildapi.fr/api/v1/pokemon/generation/1").read
 api_2 = JSON.parse(json_file_2)
 
+Booking.destroy_all
+puts "booking destroyed"
 Pokemon.destroy_all
+puts "pokemon destroyed"
 User.destroy_all
+puts "user destroyed"
 
 sacha = User.new(
     email: "sacha@pika.com",
@@ -27,6 +31,8 @@ sacha = User.new(
   )
 
 sacha.save!
+
+puts "user created"
 
 natures = []
 
