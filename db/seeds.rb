@@ -98,10 +98,12 @@ pokemon = Pokemon.new(
 pokemon.user = sacha
 pokemon.save
 array = Pokemon.all - Pokemon.where(user_id: User.where(name: "Sacha")[0])
-array.each do |pokemon|
+array.shuffle.sample(4).each do |pokemon|
+  start = rand(1..7)
+  endD = rand(3..14)
   booking = Booking.new(
-    start_date: Date.new,
-    end_date: Date.new.next_day
+    start_date: Date.today + start.day,
+    end_date: Date.today + start.day + endD.day
   )
   booking.user = sacha
   booking.pokemon = pokemon
