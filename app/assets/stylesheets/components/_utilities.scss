@@ -24,15 +24,17 @@ a {
   }
 }
 
+$icon_size: 36px;
+
 .icon {
-  font-size: large;
+  font-size: $icon_size;
 }
 
 .delete-btn {
   transition: 0.3s;
   &:hover {
     color: red;
-    font-size: larger;
+    font-size: $icon_size * 1.25;
   }
 }
 
@@ -40,7 +42,7 @@ a {
   transition: 0.3s;
   &:hover {
     color: green;
-    font-size: larger;
+    font-size: $icon_size * 1.25;
   }
 }
 
@@ -58,4 +60,11 @@ a {
   background-size: cover;
   object-fit: fill;
   min-height: calc(100vh - 77px - 100px);
+}
+
+.background-index{
+  background-image: asset-url("subtle-prism.png");
+  width: 100vw;
+  background-size: cover;
+  object-fit: fill;
 }
