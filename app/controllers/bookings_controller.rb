@@ -21,6 +21,18 @@ class BookingsController < ApplicationController
     @pokemon = Pokemon.find(@booking.pokemon_id)
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update
+    redirect_to booking_path, status: :see_other
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to booking_path, status: :see_other
+  end
+
   private
 
   def booking_params
