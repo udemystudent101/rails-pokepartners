@@ -15,3 +15,22 @@ select {
   border-radius: 4px;
   background-color: #f1f1f1;
 }
+
+.retour-list {
+  transition: 0.3s;
+
+  &:hover {
+    color: #c31432;
+  }
+}
+
+.submit {
+  input {
+    transition: 0.5s;
+
+    &:hover {
+      background-color: #240b36;
+      color: white;
+    }
+  }
+}

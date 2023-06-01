@@ -18,11 +18,11 @@
         <% end %>
         <%= f.input :price %>
         <%= f.input :photo, as: :file %>
-        <div class='d-flex justify-content-center mt-5' style="height: 40px">
-          <%= f.submit "submit", class: 'rounded-pill border border-0 btn-submit'%>
+        <div class='d-flex justify-content-center mt-5 submit' style="height: 40px">
+          <%= f.submit "submit", class: 'px-3 py-2 rounded-pill border border-0 btn-submit'%>
         </div>
         <% end %>
-        <div class="mt-4">
+        <div class="mt-4 retour-list">
           <%= link_to "retour à la liste des Pokemons", pokemons_path %>
         </div>
       </div>

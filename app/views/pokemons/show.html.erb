@@ -28,7 +28,11 @@
               <% end %>
             </div>
           </div>
-        <img src="<%= @pokemon.image_url %>" alt="pokemon.png">
+        <% if @pokemon.photo.key.present?%>
+          <%= cl_image_tag @pokemon.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="<%= @pokemon.image_url%>">
+        <% end %>
       </div>
     </div>
   </div>
