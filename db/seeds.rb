@@ -97,7 +97,6 @@ pokemon = Pokemon.new(
 )
 pokemon.user = sacha
 pokemon.save
-
 array = Pokemon.all - Pokemon.where(user_id: User.where(name: "Sacha")[0])
 array.each do |pokemon|
   booking = Booking.new(
