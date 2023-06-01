@@ -57,5 +57,4 @@ natures = []
   end
 end
 
-puts natures
 # Faker::Games::SuperSmashBros.fighter
