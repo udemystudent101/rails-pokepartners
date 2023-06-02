@@ -4,7 +4,13 @@
 <h2>Durée de la reservation</h2>
 <p>Du <%= @booking.start_date %> au <%= @booking.end_date %></p>
 <h2>Prix </h2>
-<p><%= @booking.total_price %></p>
+<p>
+<% duration = (@booking.start_date..@booking.end_date).count %>
+</p>
+<p>
+<%= @pokemon.price * duration %>
+</p>
+<p><%= @booking.total_price %> ₽</p>
 
 <%= link_to "Supprimer", pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur?"} %>
 <%= link_to "Mettre à jour", pokemon_path(@pokemon) %>
