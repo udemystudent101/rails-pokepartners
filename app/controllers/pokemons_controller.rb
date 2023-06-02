@@ -7,6 +7,7 @@ class PokemonsController < ApplicationController
     if params[:query].present?
       @pokemons = Pokemon.where("name ILIKE ?", "%#{params[:query]}%")
     end
+    @pokemons = @pokemons.shuffle
     unless params["format"].present?
       respond_to do |format|
         format.html
