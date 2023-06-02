@@ -39,7 +39,16 @@
               <% Pokemon::CATEGORIES.each do |cat| %>
                 <%= link_to cat, pokemons_path(cat), class: "dropdown-item" %>
               <% end %>
+            </div>
+          </li>
 
+          <%# NATURE LINK %>
+          <li class="nav-item dropdown">
+            <p class=" nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">Nature</p>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <% Pokemon::NATURE.each do |type| %>
+                <%= link_to type, pokemons_path(type), class: "dropdown-item" %>
+              <% end %>
             </div>
           </li>
 
@@ -48,22 +57,12 @@
             <%= link_to "Ajouter un pokemon", new_pokemon_path, class: "nav-link" %>
           </li>
 
-          <%# MY POKEMONS LINK %>
-          <li class="nav-item">
-            <%= link_to "Vos pokemons", dashboard_index_path, class: "nav-link" %>
-          </li>
-
-          <%# MY BOOKINGS LINK %>
-          <li class="nav-item">
-            <%= link_to "Vos réservations", "#", class: "nav-link" %>
-          </li>
-
             <%# PROFILE DROPDOWN %>
           <li class="nav-item dropdown">
             <%= image_tag "sacha.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Vos pokemons", dashboard_index_path, class: "nav-link" %>
+              <%= link_to "Vos réservations", "#", class: "nav-link" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

@@ -2,8 +2,8 @@ class Booking < ApplicationRecord
   belongs_to :pokemon
   belongs_to :user
 
-  # validates :user_id, presence: true
-  # validates :pokemon_id, presence: true
+  validates :user_id, presence: true
+  validates :pokemon_id, presence: true
   validates :end_date, presence: true, comparison: { greater_than: :start_date }
 
   def duration
