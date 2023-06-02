@@ -59,12 +59,11 @@ $icon_size: 36px;
   background-image: url(https://wallpapercave.com/wp/wp8104178.jpg);
   background-size: cover;
   object-fit: fill;
-  min-height: calc(100vh - 77px - 100px);
+  min-height: calc(120vh - 77px - 100px);
 }
 
 .background-index{
   background-image: asset-url("subtle-prism.png");
-  width: 100vw;
   background-size: cover;
   object-fit: fill;
 }
