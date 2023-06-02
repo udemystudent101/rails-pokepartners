@@ -7,9 +7,14 @@ class DashboardController < ApplicationController
 
   def current_bookings
     @user = current_user
-    @pokemons = Pokemon.all
-    @bookings = Booking.all
-    @my_bookings = @bookings.where(user_id: @user.id)
+    @bookings = Booking.where(user_id: @user.id)
+    @bookings.each do |booking|
+      pokemon = Pokemon.find(booking.pokemon_id)
+      duration = (booking.end_date - booking.start_date).to_i
+      booking.total_price = (duration * pokemon.price).to_i
+      booking.save
+    end
+
   end
 
 end

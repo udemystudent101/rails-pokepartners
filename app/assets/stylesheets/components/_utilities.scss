@@ -67,3 +67,9 @@ $icon_size: 36px;
   background-size: cover;
   object-fit: fill;
 }
+
+.blue-sun{
+  background-image: asset-url("sun-tornado.png");
+  background-size: cover;
+  object-fit: contain;
+}
