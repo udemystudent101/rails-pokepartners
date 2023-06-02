@@ -49,8 +49,8 @@ natures = []
   )
 
   if user.save
-    rand(3..6).times do
-      id = rand(1..150)
+    rand(3..10).times do
+      id = rand(0..150)
       nature = api_1[id]["types"][0]["name"]
       pokemon = Pokemon.new(
         name: api_1[id]["name"]["fr"],
@@ -69,4 +69,41 @@ natures = []
   end
 end
 
-# Faker::Games::SuperSmashBros.fighter
+sacha = User.where(name: "Sacha")[0]
+sacha_team = [16, 0, 5, 6]
+sacha_team.each do |id|
+  nature = api_1[id]["types"][0]["name"]
+  pokemon = Pokemon.new(
+    name: api_1[id]["name"]["fr"],
+    nature: api_1[id]["types"][0]["name"],
+    category: services.sample,
+    price: rand(50..400) + rand(1000..3000),
+    image_url: api_2[id]["image"],
+    details: details.sample
+  )
+  pokemon.user = sacha
+  pokemon.save
+end
+
+pikachu_id = 24
+nature = api_1[pikachu_id]["types"][0]["name"]
+pokemon = Pokemon.new(
+  name: api_1[pikachu_id]["name"]["fr"],
+  nature: api_1[pikachu_id]["types"][0]["name"],
+  category: services.sample,
+  price: rand(10000..99999),
+  image_url: api_2[pikachu_id]["image"],
+  details: details.sample
+)
+pokemon.user = sacha
+pokemon.save
+array = Pokemon.all - Pokemon.where(user_id: User.where(name: "Sacha")[0])
+array.each do |pokemon|
+  booking = Booking.new(
+    start_date: Date.new,
+    end_date: Date.new.next_day
+  )
+  booking.user = sacha
+  booking.pokemon = pokemon
+  booking.save!
+end
