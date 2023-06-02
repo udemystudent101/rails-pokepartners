@@ -4,7 +4,7 @@
     <%# IMAGE POKEMON %>
     <div class="border shadow border-dark border-2 rounded-circle p-2 d-flex justify-content-center align-items-center" name="pokemon-details" style="width: 150px; height: 150px;">
       <% if pokemon.photo.key.present?%>
-        <%= cl_image_tag pokemon.photo.key, height: 300, width: 400, crop: :fill, class: "relative" %>
+        <%= cl_image_tag pokemon.photo.key, height: 150, width: 150, crop: :fill, class: "relative" %>
       <% else %>
         <img src="<%= pokemon.image_url%>" style="height: 90%;">
       <% end %>

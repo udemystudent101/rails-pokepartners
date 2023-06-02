@@ -6,9 +6,9 @@
       <p class="bg-light p-1 rounded-pill border border-5" data-price-calculation-target="price">Prix total</p>
       <div class="d-flex justify-content-center">
       <% if booking.id? %>
-        <%= f.button :submit, booking_path(booking.id), value: "HELLOOO2", method: :patch, class: "btn btn-outline-dark rounded-pill" %>
+        <%= f.button :submit, booking_path(booking.id), value: "Modifie ta réservation", method: :patch, class: "btn btn-outline-dark rounded-pill" %>
       <% else %>
-        <%= f.button :submit, booking_path, value: "HELLOOO", class: "btn btn-outline-dark rounded-pill" %>
+        <%= f.button :submit, booking_path, value: "Reserve ton PokePartners", class: "btn btn-outline-dark rounded-pill" %>
       <% end %>
       </div>
     <% end %>
