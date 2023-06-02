@@ -1,10 +1,40 @@
-<h1>Vos reservations</h1>
-<h2>Nom</h2>
-<p><%= @pokemon.name%></p>
-<h2>Durée de la reservation</h2>
-<p>Du <%= @booking.start_date %> au <%= @booking.end_date %></p>
-<h2>Prix </h2>
-<p><%= @booking.total_price %></p>
+<div class="container my-5" >
+  <h1 class="text-center mb-4">Ma reservation</h1>
+  <div class="d-flex justify-content-around align-items-center " >
 
-<%= link_to "Supprimer", pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Etes vous sur?"} %>
-<%= link_to "Mettre à jour", pokemon_path(@pokemon) %>
+    <div>
+      <table class="table table-dark table-striped text-center rounded-5 ">
+        <thead>
+          <tr>
+            <th class="border border-white p-3">Nom</th>
+            <th class="border border-white p-3">Durée de la reservation</th>
+            <th class="border border-white p-3">Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td class="border border-white p-3"><%= @pokemon.name%></td>
+          <td class="border border-white p-3"><%= @booking.start_date%> - <%=@booking.end_date%></td>
+          <td class="border border-white p-3"><%= @booking.total_price%></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+
+    <div class="d-flex flex-column icon p-3">
+      <%= link_to pokemon_path(@pokemon) do %>
+        <i class="fas fa-edit edit-btn"></i>
+      <% end %>
+      <%= link_to pokemon_path(@pokemon), data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"} do %>
+        <i class="fa-solid fa-trash delete-btn"></i>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
