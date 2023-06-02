@@ -1,0 +1,51 @@
+<div class="d-flex opacity-100 align-items-center justify-content-between bg-light m-4 rounded-5 shadow px-4 py-3" style="height: 200px; width: 60vw;">
+
+  <div class="d-flex">
+    <%# IMAGE POKEMON %>
+    <div class="border shadow border-dark border-2 rounded-circle p-2 d-flex justify-content-center align-items-center" name="pokemon-details" style="width: 150px; height: 150px;">
+      <% if pokemon.photo.key.present?%>
+        <%= cl_image_tag pokemon.photo.key, height: 300, width: 400, crop: :fill, class: "relative" %>
+      <% else %>
+        <img src="<%= pokemon.image_url%>" style="height: 90%;">
+      <% end %>
+    </div>
+
+    <%# POKEMON INFOS %>
+    <div class="ms-3">
+      <h3><em><%= pokemon.name %></em></h3>
+      <p><strong><%= pokemon.nature %></strong></p>
+      <p> Mission: <strong><%= pokemon.category %></strong></p>
+      <p>Propriétaire: <strong><%= User.find(pokemon.user_id).name %></strong></p>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="d-flex flex-column justify-content-between align-items-center" name="infos" style="height: 100%;">
+
+    <%# BOOKING DETAILS %>
+    <div class="text-center" name="booking-details">
+      <p style="margin-bottom: 0px;"><%= booking.start_date.strftime("%d %B %Y") %> - <%= booking.end_date.strftime("%d %B %Y") %></p>
+      <p style="margin-bottom: 15px;"><%= (booking.end_date - booking.start_date).to_i %> jours</p>
+      <p style="margin-bottom: 0px;"><strong><%= booking.total_price.to_i %> ₽</strong></p>
+    </div>
+
+    <%# EDIT DESTROY ICONS %>
+    <div class="pb-3">
+      <% if true %>
+          <%= link_to pokemons_path do %>
+            <i class="fas fa-edit edit-btn"></i>
+          <% end %>
+          <%= link_to pokemons_path do %>
+            <i class="fa-solid fa-trash delete-btn"></i>
+          <% end %>
+        <% end %>
+    </div>
+
+
+  </div>
+
+
+</div>

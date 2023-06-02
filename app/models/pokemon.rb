@@ -16,7 +16,10 @@ class Pokemon < ApplicationRecord
     "Transport aquatique",
     "Pompier",
     "Police",
-    "Soin"
+    "Soin",
+    "Exploration",
+    "Garde du corps",
+    "Nettoyage"
   ]
 
   NATURE = [

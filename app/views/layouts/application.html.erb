@@ -12,9 +12,13 @@
   </head>
 
   <body data-controller="searchbar" class="background-index">
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+    <div class="footer-fixed-bottom">
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
