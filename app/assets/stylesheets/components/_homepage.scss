@@ -1,0 +1,19 @@
+
+
+
+.radial-linear {
+  background-image: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0, 0, 0, 0.9));
+}
+
+.home-bg {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  &.radial-linear {
+    background-image: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0, 0, 0, 0.9)), asset-url("home-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

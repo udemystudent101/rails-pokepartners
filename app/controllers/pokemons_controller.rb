@@ -54,12 +54,6 @@ class PokemonsController < ApplicationController
     array.each do |element|
       @booking = element if element.user_id == current_user.id
     end
-
-    # if @booking.present?
-    #   @booking = Booking.where(pokemon_id: @pokemon.id, user_id: current_user.id).first
-    # else
-    #   @booking = Booking.new
-    # end
   end
 
   def edit
@@ -77,6 +71,10 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.find(params[:id])
     @pokemon.destroy
     redirect_to pokemons_path, status: :see_other
+  end
+
+  def home
+    render :home, layout: "home"
   end
 
   private
