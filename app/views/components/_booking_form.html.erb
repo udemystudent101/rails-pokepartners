@@ -3,6 +3,8 @@
     <%= simple_form_for([pokemon, booking]) do |f| %>
       <%= f.input :start_date, label: false, as: :date, html5: true, input_html: { data: { price_calculation_target: "start", action: "change->price-calculation#calculate" }, value: f.object.start_date || booking.start_date, class: "border border-5 rounded-pill" } %>
       <%= f.input :end_date, label: false, as: :date, html5: true, input_html: { data: { price_calculation_target: "end", action: "change->price-calculation#calculate" }, value: f.object.end_date || booking.end_date , class: "border border-5 rounded-pill my-3"} %>
+      <%= f.input :start_date, as: :string %>
+
       <p class="bg-light p-1 rounded-pill border border-5" data-price-calculation-target="price">Prix total</p>
       <div class="d-flex justify-content-center">
       <% if booking.id? %>
