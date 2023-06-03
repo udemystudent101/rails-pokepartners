@@ -1,6 +1,6 @@
 <div class="blue-sun d-flex justify-content-center p-5">
-  <div class="mt-4 rounded-5 pokeball p-3 d-flex justify-content-center">
-    <ul class="list-unstyled">
+  <div data-controller="sortable" class="mt-4 rounded-5 pokeball p-3 d-flex justify-content-center">
+    <ul data-sortable-target="list" class="list-unstyled">
       <% @bookings.each do |booking| %>
       <li>
         <%= render "booking_card", booking: booking, pokemon: Pokemon.find(booking.pokemon_id) %>

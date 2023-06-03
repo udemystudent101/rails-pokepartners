@@ -5,7 +5,6 @@ export default class extends Controller {
 
   static targets = ['input', 'list', 'form']
   connect() {
-    console.log("hello !")
   }
 
   searching() {

@@ -12,3 +12,6 @@ application.register("price-calculation", PriceCalculationController)
 
 import SearchbarController from "./searchbar_controller"
 application.register("searchbar", SearchbarController)
+
+import SortableController from "./sortable_controller"
+application.register("sortable", SortableController)
