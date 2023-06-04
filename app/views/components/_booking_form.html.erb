@@ -1,9 +1,10 @@
 <div class="booking-form p-5 rounded-5 pokeball d-flex justify-content-center align-items-center text-center" style="height: 350px; width: 300px">
-  <div class="border p-2 rounded-5 bg-light shadow" data-controller="price-calculation" data-price-calculation-price-value=<%= pokemon.price %> >
+  <div data-controller="flatpickr" class="border p-2 rounded-5 bg-light shadow" data-controller="price-calculation" data-price-calculation-price-value=<%= pokemon.price %> >
     <%= simple_form_for([pokemon, booking]) do |f| %>
       <%= f.input :start_date, label: false, as: :date, html5: true, input_html: { data: { price_calculation_target: "start", action: "change->price-calculation#calculate" }, value: f.object.start_date || booking.start_date, class: "border border-5 rounded-pill" } %>
       <%= f.input :end_date, label: false, as: :date, html5: true, input_html: { data: { price_calculation_target: "end", action: "change->price-calculation#calculate" }, value: f.object.end_date || booking.end_date , class: "border border-5 rounded-pill my-3"} %>
-      <%= f.input :start_date, as: :string %>
+      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: "end_time" } %>
 
       <p class="bg-light p-1 rounded-pill border border-5" data-price-calculation-target="price">Prix total</p>
       <div class="d-flex justify-content-center">
